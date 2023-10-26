@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.center {
+  
+  width: 50%;
+  border: 3px solid #1c916c;
+  padding-left : 50%;
+  padding-top::30%;
+}
+ 
+
+.c1 {
+  
+  width: 50%;
+  
+  padding-left :30%;
+  margin-top:70px;
+}
+.h2 {
+   color: red;
+ }
+ .p1 {
+   font-family: Arial, Helvetica, sans-serif;
+ }
+  .p2 {
+   font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+	font-weight: bold;
+	 font-variant: small-caps;
+ }
+  .p3 {
+   font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+ }
+ .footer {
+  
+
+  padding-left : 50%;
+  margin-top : 10%;
+}
+ 
+</style>
+<script>
+getText("http://blackfarm.in/24_7_complaint_cell/view_category.php");
+
+async function getText(file) {
+alert("in function");
+try {
+  let myObject = await fetch(file);
+  let myText = await myObject.text();
+   document.getElementById("demo").innerHTML = "132";
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.message;
+}
+
+  
+ 
+}
+</script>
+</head>
+<body>
+ 
+<p id="demo">Fetch a file to change this text.</p>
+ 
+</body>
+</html>

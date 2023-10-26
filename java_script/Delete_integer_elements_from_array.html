@@ -1,0 +1,21 @@
+<html>
+<script>
+let ab = [122,"react",2, 4, 2, 4, 10,"welcome","java","php", 6, 8, 10, 12,6];
+function isDigit(s) {
+  return /^\d+$/.test(s);
+}
+console.log(isDigit('45')); // true
+console.log(isDigit('A')); // false
+
+let uniqueElements = [];
+
+for (let i = 0; i < ab.length; i++) 
+{
+    if (!uniqueElements.includes(ab[i]) && isDigit(ab[i])) 
+	{
+        uniqueElements.push(ab[i]);
+    }  
+ }
+ document.write("<h3> only digists: " + uniqueElements + "</h3>");
+</script>
+</html>

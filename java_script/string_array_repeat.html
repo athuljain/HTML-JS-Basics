@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+  <script>
+    let arr1 = ["honda", "toyotta", "honda", "chevorlette", "ford", "suzuki", "honda", "chevorlette", "honda", "dodge", "chevorlette","honda"];
+    let h = [];
+
+    for (i = 0; i < arr1.length; i++) {
+      let c = 0;
+      let s = "";
+      for (let j = 0; j < arr1.length; j++) {
+        if (arr1[i] === arr1[j]) {
+          c = c + 1;
+        }
+      }
+      s = "Count of <b>" + arr1[i] + "</b> is: " + c + "<br/>";
+      let d = 1;  
+      for (let k = 0; k < h.length; k++) 
+	  {
+        if (s.includes(h[k])) 
+		{
+          d = 0;
+          break;
+        }
+      }
+      if (d === 1) h.push(s);
+    }
+
+    for (let i = 0; i < h.length; i++) 
+	{
+      document.write(h[i]);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+<!--
+#Layer1 {
+	position:absolute;
+	left:296px;
+	top:200px;
+	width:830px;
+	height:230px;
+	z-index:1;
+}
+-->
+.highlight {
+  background-color: yellow;
+}
+
+</style>
+<body>
+
+<div id="Layer1">
+  <table width="559" border="0">
+    <tr>
+      <td width="201">&nbsp;</td>
+      <td width="348">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Enter Paragraph </td>
+      <td><label>
+        <textarea name="txtNo" id="txtNo" rows="6" cols="50"></textarea>
+      </label></td>
+    </tr>
+	 <tr>
+      <td>Search Data </td>
+      <td><label>
+        <input type="text" id="txt_data" />
+      </label></td>
+    </tr>
+	
+    <tr>
+      <td>&nbsp;</td>
+      <td><label>
+        <input type="submit" name="Submit" value="Submit" onClick="findReverse()">
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><p id="demo"> </p> </td>
+    </tr>
+  </table>
+  <button onclick="highlight('fox')">Highlight</button>
+
+<div id="inputText">
+  The fox went over the fence
+</div>
+
+</div>
+<h2>Highlight Text    </h2>
+
+<p> </p>
+
+<script>
+function findReverse()
+{
+	text = document.getElementById("txtNo").value;
+	data = document.getElementById("txt_data").value;
+	data=data.toLowerCase();
+	text=text.toLowerCase();
+ 
+ 	position = text.search(data);
+	result="";
+
+    result = result.concat(position);
+	if(position>0)
+    {
+    	document.getElementById("demo").innerHTML = "Yes";
+    }
+    else
+    {
+    	document.getElementById("demo").innerHTML = "No";
+    }
+	 
+	 var inputText = document.getElementById("inputText");
+  var innerHTML = text;
+  var index = innerHTML.indexOf(data);
+  if (index >= 0) { 
+   innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+data.length) + "</span>" + innerHTML.substring(index + data.length);
+   inputText.innerHTML = innerHTML;
+  }
+  
+  
+  
+  
+}
+function highlight(text) {
+   	text = document.getElementById("txtNo").value;
+	data = document.getElementById("txt_data").value;
+	data=data.toLowerCase();
+	text=text.toLowerCase();
+ 
+ 	 
+	 
+   
+  var innerHTML = text;
+  var index = innerHTML.indexOf(data);
+  if (index >= 0) { 
+   innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+data.length) + "</span>" + innerHTML.substring(index + data.length);
+   txtNo.innerHTML = innerHTML;
+  }
+}
+</script>
+
+</body>
+</html>

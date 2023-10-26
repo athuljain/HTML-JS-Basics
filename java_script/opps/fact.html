@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+ 
+class Fact
+{
+ 
+    constructor(no)
+    {
+      this.no=no;
+    }
+ 
+    findFact()
+    {
+		let i=0;
+		let f=1;
+		for(i=1;i<this.no;i++)
+		{
+			f=f*i;
+		}
+  		document.writeln("Fact is:"+ this.no )
+    }
+}
+
+var e1=new Fact(4);
+var e2=new Fact(5);
+e1.findFact(); /
+e2.findFact();
+</script>
+
+</body>
+</html>

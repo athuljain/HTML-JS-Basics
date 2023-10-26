@@ -1,0 +1,111 @@
+<html>
+<script>
+const fruitData = [
+  {
+    "id": "1",
+    "fruit": "Apple",
+    "origin": "Himalaya",
+    "color": "Red"
+  },
+  {
+    "id": "2",
+    "fruit": "Mango",
+    "origin": "Tamilnadu",
+    "color": "Yellow"
+  },
+  {
+    "id": "3",
+    "fruit": "Coconut",
+    "origin": "Kerala",
+    "color": "Green"
+  }
+];
+
+
+for (let i = 0; i < fruitData.length; i++) 
+{
+	const fid = fruitData[i].id;
+  	const fruit = fruitData[i].fruit;
+  	const origin = fruitData[i].origin;
+  	const color = fruitData[i].color;
+
+  	document.write(`Id:<b> ${fid} </b>, Fruit Name:<b> ${fruit}</b>, Size: <b> ${origin} </b>, Color: <b> ${color} </b>`);
+  	document.write("<br/><br/>");
+}
+
+document.write("<br/><br/>");
+document.write("<br/><br/>");
+
+
+
+function findData() {
+  const id = document.getElementById("txtId").value;
+  const resultElement = document.getElementById("result");
+
+  const foundFruit = fruitData.find((fruit) => fruit.id === id);
+
+  if (foundFruit) {
+     
+    resultElement.innerHTML = `
+      <p>Fruit: ${foundFruit.fruit}</p>
+      <p>Origin: ${foundFruit.origin}</p>
+      <p>Color: ${foundFruit.color}</p>
+      <button onclick="editData('${foundFruit.id}')">Edit</button>
+      <button onclick="deleteData('${foundFruit.id}')">Delete</button>
+    `;
+  } else {
+    resultElement.innerHTML = "No fruit found with the given id.";
+  }
+}
+
+function editData(id) {
+   
+  const index = fruitData.findIndex((fruit) => fruit.id === id);
+ 
+  if (index !== -1) {
+     
+    const updatedFruit = prompt("Edit Fruit name:", fruitData[index].fruit);
+    const updatedSize = prompt("Edit Origin:", fruitData[index].origin);
+    const updatedColor = prompt("Edit Color:", fruitData[index].color);
+
+    
+    fruitData[index].fruit = updatedFruit;
+    fruitData[index].origin = updatedSize;
+    fruitData[index].color = updatedColor;
+
+    findData(); 
+  }
+}
+
+function deleteData(id) {
+  
+  const index = fruitData.findIndex((fruit) => fruit.id === id);
+
+  if (index !== -1) {
+     
+    fruitData.splice(index, 1);
+    document.getElementById("result").innerHTML = "Data deleted successfully.";
+  }
+}
+</script>
+<body>
+  <table>
+    <tr>
+      <td>Enter id</td>
+      <td><input type="text" id="txtId" /></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td><input type="button" value="Find" onclick="findData()" /></td>
+    </tr>
+	  <tr>
+      <td></td>
+      <td>  <div id="result"></div> </td>
+    </tr>
+	
+  </table>
+
+ 
+</body>
+</html>

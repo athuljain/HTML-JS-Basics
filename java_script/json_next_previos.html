@@ -1,0 +1,112 @@
+<html>
+<style type="text/css">
+<!--
+#Layer1 {
+	position:absolute;
+	left:336px;
+	top:143px;
+	width:823px;
+	height:198px;
+	z-index:1;
+	background-color: #CFFCFE;
+}
+.style1 {color: #FFFFFF}
+-->
+</style>
+<script>
+const fruitData = [
+  {
+    "id": "1",
+    "fruit": "Apple",
+    "size": "Large",
+    "color": "Red"
+  },
+  {
+    "id": "2",
+    "fruit": "Mango",
+    "size": "Large",
+    "color": "Yellow"
+  },
+  {
+    "id": "3",
+    "fruit": "Coconut",
+    "size": "Large",
+    "color": "Green"
+  }
+  ,
+  {
+    "id": "4",
+    "fruit": "Jack",
+    "size": "Large",
+    "color": "Yellow"
+  }
+];
+
+
+
+
+let counter = 0;
+
+function showData() 
+{
+  const resultElement = document.getElementById("result");
+
+  if (counter < 0 || counter >= fruitData.length) 
+  {
+    resultElement.innerHTML = "No fruit found with the given id.";
+    return;
+  }
+
+  const foundFruit = fruitData[counter];
+
+  resultElement.innerHTML = "<b>" + `Fruit: ${foundFruit.fruit}, Size: ${foundFruit.size}, Color: ${foundFruit.color}` + "</b>";
+}
+
+function previousData() 
+{
+  counter = Math.max(0, counter - 1);
+  showData();
+}
+
+function nextData() 
+{
+  counter = Math.min(fruitData.length - 1, counter + 1);
+  showData();
+}
+
+ 
+showData();
+</script>
+<body>
+  <div id="Layer1">
+    <table width="829" height="197">
+      <tr>
+        <td colspan="2" bgcolor="#0066FF"><div align="center"><h2 class="style1">View Fruit Data</h2> 
+        </div></td>
+      </tr>
+      <tr>
+        <td colspan="2"></td>
+      </tr>
+      <tr>
+        <td height="46" colspan="2">
+          <div align="center">
+		  <div id="result">		  </div>
+        </div></td>
+      </tr>
+      <tr>
+        <td height="34" colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="404" height="33"><div align="right">
+          <input name="previousBtn" type="button" onClick="previousData()" value="Previous" />
+        </div></td>
+        <td width="402"><input name="nextBtn" type="button" onClick="nextData()" value="Next" /></td>
+      </tr>
+      <tr>
+        <td height="40">&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

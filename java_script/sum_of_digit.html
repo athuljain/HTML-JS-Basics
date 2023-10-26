@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+<!--
+#Layer1 {
+	position:absolute;
+	left:296px;
+	top:200px;
+	width:830px;
+	height:230px;
+	z-index:1;
+}
+-->
+</style>
+<body>
+
+<div id="Layer1">
+  <table width="559" border="0">
+    <tr>
+      <td width="201">&nbsp;</td>
+      <td width="348">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Enter Number </td>
+      <td><label>
+        <input type="text" id="txtNo" name="txtNo">
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><label>
+        <input type="submit" name="Submit" value="Submit" onClick="findSum()">
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><p id="demo"> </p> </td>
+    </tr>
+  </table>
+</div>
+<h2>Sum of digit </h2>
+
+<p> </p>
+
+
+
+<script>
+function findSum()
+{
+	n = document.getElementById("txtNo").value;
+	x=parseInt(n);
+	 
+	s = 0;
+	while(x!=0)
+	{
+		k=x%10;
+		 
+		s=s+k;
+		x=parseInt(x/10);
+	}
+	document.getElementById("demo").innerHTML = "Sum of digit is:" + s;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+<!--
+#Layer1 {
+	position:absolute;
+	left:296px;
+	top:200px;
+	width:830px;
+	height:230px;
+	z-index:1;
+}
+-->
+</style>
+<body>
+
+<div id="Layer1">
+  <table width="559" border="0">
+    <tr>
+      <td width="201">&nbsp;</td>
+      <td width="348">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Enter Paragraph </td>
+      <td><label>
+        <textarea name="txtNo" id="txtNo" rows="6" cols="50"></textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><label>
+        <input type="submit" name="Submit" value="Submit" onClick="findReverse()">
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><p id="demo"> </p> </td>
+    </tr>
+  </table>
+</div>
+<h2>Paragraph iterator </h2>
+
+<p> </p>
+
+<script>
+function findReverse()
+{
+	text = document.getElementById("txtNo").value;
+	l=text.length;
+	result="";
+	const myArray = text.split(" ");
+	ta=text.split('');
+	sc=0;
+	for(i=0;i<l;i++)
+	{
+		if(ta[i]=='.')
+		{
+			sc=sc+1;
+		}
+	}
+	result = result.concat("<b>Total number of words is:"+myArray.length);
+	result = result.concat("<br>");
+	result = result.concat("Total number of sentence is:"+sc+"</b>");
+	 
+	document.getElementById("demo").innerHTML = result;
+}
+
+</script>
+
+</body>
+</html>

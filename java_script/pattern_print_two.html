@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+<!--
+#Layer1 {
+	position:absolute;
+	left:296px;
+	top:200px;
+	width:830px;
+	height:230px;
+	z-index:1;
+}
+-->
+</style>
+<body>
+
+<div id="Layer1">
+  <table width="559" border="0">
+    <tr>
+      <td width="201">&nbsp;</td>
+      <td width="348">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Enter Number </td>
+      <td><label>
+        <input type="text" id="txtNo" name="txtNo">
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><label>
+        <input type="submit" name="Submit" value="Submit" onClick="findReverse()">
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><p id="demo"> </p> </td>
+    </tr>
+  </table>
+</div>
+<h2>Pattern Print Part II </h2>
+
+<p> </p>
+
+
+
+<script>
+function findReverse()
+{
+	n = document.getElementById("txtNo").value;
+	x=parseInt(n);
+	k=1;
+	s = 0;
+	result="";
+	for(i=0;i<x;i++)
+	{
+	
+		for(j=1;j<=k;j++)
+		{
+			result = result.concat(j);
+		}
+		k=k+1;
+		result = result.concat("<br>");
+	}
+	document.getElementById("demo").innerHTML = result;
+}
+
+</script>
+
+</body>
+</html>

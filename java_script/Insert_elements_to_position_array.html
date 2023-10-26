@@ -1,0 +1,15 @@
+<html>
+<script>
+ 
+const array = [1, 32, 3, 14, 5];
+document.write("<h3>with out sort:  " + array + "</h3>");
+
+const elementToInsert = 10;
+const replaceIndex = 3;
+
+array.splice(replaceIndex, 1, elementToInsert);
+array.sort((a, b) => a - b);
+ 
+document.write("<h3>  " + array + "</h3>");
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Find the largest and smallest numbers in an ARRAY</h1>
+    <p>enter a list of numbers separated by commas :</p>
+    <input type="text" id="inputArray">
+    <button onclick="findLargestAndSmallest()">Find Largest And Smallest</button>
+    <p id="result"></p>
+
+
+
+
+
+<script>
+    function findLargestAndSmallest(){
+        const inputArray=document.getElementById("inputArray").value;
+        const numbers=inputArray.split(',').map(Number)
+
+        if(numbers.length === 0){
+            document.getElementById('result').innerHTML="please enter some numbers."
+            return;
+        }
+        let largest = numbers[0]
+        let smallest=numbers[0]
+
+        for(let i=1;i<numbers.length;i++){
+            if(numbers[i]>largest){
+                largest=numbers[i]
+            }
+            if(numbers[i]<smallest){
+                smallest= numbers[i]
+            }
+        }
+        document.getElementById("result").innerHTML=`Largest Number: ${largest}<br>Smallest Number: ${smallest}`;
+
+    }
+</script>
+
+
+</body>
+</html>

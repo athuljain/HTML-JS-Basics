@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+<!--
+#Layer1 {
+	position:absolute;
+	left:296px;
+	top:200px;
+	width:830px;
+	height:230px;
+	z-index:1;
+}
+-->
+</style>
+<body>
+
+<div id="Layer1">
+  <table width="559" border="0">
+    <tr>
+      <td width="201">&nbsp;</td>
+      <td width="348">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td> <p id="demo1"> </p> </td>
+      <td><label>
+        
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><label>
+        <input type="submit" name="Submit" value="Submit" onClick="arrayBig()">
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><p id="demo"> </p> </td>
+    </tr>
+  </table>
+</div>
+<h2>Pattern Print Part III </h2>
+
+<p> </p>
+
+<script>
+function arrayBig()
+{
+	var rank = new Array(8888,111, 2, 3456, 444);
+	x=rank[0];
+	 for (i = 1; i < rank.length; i++) {  
+         	if(rank[i]>x)
+			{
+				x=rank[i];
+			}
+         }  
+	document.getElementById("demo").innerHTML ="Big is:"+ x;
+	document.getElementById("demo1").innerHTML ="Array is:"+ rank;
+}
+
+</script>
+
+</body>
+</html>

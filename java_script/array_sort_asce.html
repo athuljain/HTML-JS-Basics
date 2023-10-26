@@ -1,0 +1,43 @@
+<html>
+<script>
+let ab = [2, 4, 6, 8, 10, 12];
+let bc = [1, 3, 5, 7, 9, 11];
+let de = [];
+let k = 0;
+let i, j;  
+ 
+for (i = 0; i < ab.length; i++) {
+  for (j = 0; j < bc.length; j++) {
+    if (de.includes(ab[i]) || de.includes(bc[j])) {
+    }
+    else {
+      if (ab[i] < bc[j]) {
+        de[k] = ab[i];
+      } else {
+        de[k] = bc[j];
+      }
+      k = k + 1;
+    }
+  }
+}
+de[k] = ab[i - 1];
+document.write("<br><br>-------------------Array Sort----<br/>"); 
+document.write("<h3>"+ab + "</h3><br><br>");
+document.write("<h3>"+bc + "</h3><br><br>");
+document.write("<h3>"+de + "</h3><br><br>");
+
+
+ document.write("<br><br>-------------------Using Array Method----<br/>"); 
+ 
+de = [...ab, ...bc];
+de = Array.from(new Set(de));
+de.sort((a, b) => a - b);
+
+document.write("<h3>"+de + "</h3><br><br>");
+
+
+
+</script>
+<body>
+	</body>
+	</html>

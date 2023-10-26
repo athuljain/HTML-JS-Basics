@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+ 
+class Fact
+{
+ 
+    constructor()
+    {
+      this.no=1;
+    }
+ 
+    findFact(n)
+    {
+		let i=0;
+		let f=1;
+		this.no=parseInt(n);
+		for(i=1;i<=this.no;i++)
+		{
+			f=f*i;
+		}
+  		document.writeln("Fact is:"+f )
+    }
+}
+
+var e1=new Fact();
+ 
+e1.findFact(4); 
+ 
+</script>
+
+</body>
+</html>
