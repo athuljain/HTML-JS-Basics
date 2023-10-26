@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Count Duplicate Elements</title>
+</head>
+<body>
+    <h1>Count Duplicate Elements in an Array</h1>
+    <p>Enter a list of numbers separated by commas:</p>
+    <input type="text" id="inputArray">
+    <button onclick="countDuplicates()">Count Duplicates</button>
+    <p id="result"></p>
+
+    <script>
+        function countDuplicates() {
+            const inputArray = document.getElementById("inputArray").value;
+            const numbers = inputArray.split(',').map(Number);
+
+            const counts = {};
+
+            for (const number of numbers) {
+                if (number in counts) {
+                    counts[number]++;
+                } else {
+                    counts[number] = 1;
+                }
+            }
+
+            let duplicateCount = 0;
+            for (const number in counts) {
+                if (counts[number] > 1) {
+                    duplicateCount += 1;
+                }
+            }
+
+            document.getElementById("result").innerHTML = `Total number of duplicates: ${duplicateCount}`;
+        }
+    </script>
+</body>
+</html>
