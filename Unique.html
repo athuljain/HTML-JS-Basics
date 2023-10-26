@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Unique Elements</title>
+</head>
+<body>
+    <h1>Print Unique Elements in an Array</h1>
+    <p>Enter a list of numbers separated by commas:</p>
+    <input type="text" id="inputArray">
+    <button onclick="printUniqueElements()">Print Unique Elements</button>
+    <p id="result"></p>
+
+    <script>
+        function printUniqueElements() {
+            const inputArray = document.getElementById("inputArray").value;
+            const numbers = inputArray.split(',').map(Number);
+
+            const uniqueElements = Array.from(new Set(numbers));
+
+            document.getElementById("result").innerHTML = `Unique elements: ${uniqueElements.join(', ')}`;
+        }
+    </script>
+</body>
+</html>
