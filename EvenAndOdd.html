@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even and Odd</title>
+</head>
+<body>
+    <h1>Separate Odd and Even Numbers</h1>
+    <input type="text" id="inputNumbers" placeholder="Enter numbers separated by commas">
+    <button onclick="separateNumbers()">Separate</button>
+
+    <h3>Odd Numbers</h3>
+    <ul id="oddNumbers"></ul>
+
+    <h3>Even Numbers</h3>
+    <ul id="evenNumbers"></ul>
+
+    <script>
+        function separateNumbers() {
+            const input = document.getElementById('inputNumbers').value;
+            const numbers = input.split(',').map(Number);
+            const oddNumbers = [];
+            const evenNumbers = [];
+
+            for (let i = 0; i < numbers.length; i++) {
+                if (numbers[i] % 2 === 0) {
+                    evenNumbers.push(numbers[i]);
+                } else {
+                    oddNumbers.push(numbers[i]);
+                }
+            }
+
+            displayResults(oddNumbers, evenNumbers);
+        }
+
+        function displayResults(oddNumbers, evenNumbers) {
+            const oddList = document.getElementById('oddNumbers');
+            const evenList = document.getElementById('evenNumbers');
+
+            oddList.innerHTML = ''; // Clear previous results
+            evenList.innerHTML = '';
+
+            for (let i = 0; i < oddNumbers.length; i++) {
+                const li = document.createElement('li');
+                li.textContent = oddNumbers[i];
+                oddList.appendChild(li);
+            }
+
+            for (let i = 0; i < evenNumbers.length; i++) {
+                const li = document.createElement('li');
+                li.textContent = evenNumbers[i];
+                evenList.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>
