@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="rowCount" placeholder="enter number of rows">
+    <button onclick="printPattern()">Print</button>
+    <pre id="patternOutput"></pre>
+
+
+    <script>
+        function printPattern(){
+            const rowCount=parseInt(document.getElementById('rowCount').value)
+            let pattern=''
+            for (let i=1;i<rowCount;i++){
+                for(let j=1;j<=(rowCount-i);j++){
+                    pattern += " "
+                }
+                for(k=1;k<=i;k++){
+                    pattern += '* '
+                }
+                pattern += '\n'
+            }
+            document.getElementById('patternOutput').textContent=pattern
+        }
+    </script>
+</body>
+</html>
