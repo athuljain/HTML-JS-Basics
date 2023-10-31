@@ -16,12 +16,24 @@
     function printPattern(){
         const rowCount = parseInt(document.getElementById('rowCount').value)
         let pattern='' 
-        for (let i=1;i<=rowCount;i++){
-            for(let j=1;j<=i;j++){
-                pattern += '*'
+
+            for(let i=1;i<=rowCount;i++){
+                for(let j=1;j<=i;j++){
+                    pattern += "*"
+                }
+                pattern += '\n'
             }
-            pattern += '\n';
-        }
+
+
+
+        for (let i = rowCount-1; i > 0; i--) {
+                for (let j = i; j > 0; j--) {
+                    pattern += '*';
+                }
+                pattern += '\n';
+            }
+
+            
         document.getElementById('patternOutput').textContent=pattern
     }
 
