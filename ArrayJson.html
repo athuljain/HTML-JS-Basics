@@ -1,136 +1,113 @@
+<!DOCTYPE html>
 <html>
-  <head> </head>
 
-  <body>
+<head>
+</head>
+
+<body>
     <table>
-      <tr>
-        <td>Enter data</td>
-      </tr>
-      <tr>
-        <td><input type="text" id="txtId" /></td>
-        <td>
-          <input type="button" value="find" onclick="findData()" />
-        </td>
-      </tr>
-      <tr>
-        <td>Enter fruitid</td>
-      </tr>
-      <tr>
-        <td><input type="text" id="fruitid" /></td>
-      </tr>
-      <tr>
-        <td>Enter fruit</td>
-      </tr>
-      <tr>
-        <td><input type="text" id="fruit" /></td>
-      </tr>
-      <tr>
-        <td>Enter color</td>
-      </tr>
-      <tr>
-        <td><input type="text" id="color" /></td>
-      </tr>
-      <tr>
-        <td>Enter size</td>
-      </tr>
-      <tr>
-        <td><input type="text" id="size" /></td>
-      </tr>
-
-      <tr>
-        <td>
-          <input type="button" value="insert" onclick="addData()" />
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <div id="result"></div>
-        </td>
-      </tr>
+        <tr>
+            <td>Enter data</td>
+        </tr>
+        <tr>
+            <td><input type="text" id="txtId"></td>
+            <td><input type="button" value="find" onclick="findData()" /></td>
+        </tr>
+        <tr>
+            <td>Enter fruitid</td>
+        </tr>
+        <tr>
+            <td><input type="text" id="txtfruitid"></td>
+        </tr>
+        <tr>
+            <td>Enter fruit</td>
+        </tr>
+        <tr>
+            <td><input type="text" id="txtfruit"></td>
+        </tr>
+        <tr>
+            <td>Enter color</td>
+        </tr>
+        <tr>
+            <td><input type="text" id="txtcolor"></td>
+        </tr>
+        <tr>
+            <td>Enter size</td>
+        </tr>
+        <tr>
+            <td><input type="text" id="txtsize"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="insert" onclick="addData()" /></td>
+        </tr>
+        <tr>
+            <td>
+                <div id="result"></div>
+            </td>
+        </tr>
     </table>
     <script>
-      const fruitdata = [
-        {
-          id: "1",
-          fruit: "apple",
-          color: "red",
-          size: "small",
-        },
-        {
-          id: "2",
-          fruit: "guva",
-          color: "green",
-          size: "small",
-        },
-        {
-          id: "3",
-          fruit: "mango",
-          color: "green",
-          size: "large",
-        },
-        {
-          id: "4",
-          fruit: "grape",
-          color: "green",
-          size: "large",
-        },
-      ];
+        const fruitdata = [
+            {
+                "id": "1",
+                "fruit": "apple",
+                "color": "red",
+                "size": "small",
+            },
+            {
+                "id": "2",
+                "fruit": "guava",
+                "color": "green",
+                "size": "small",
+            },
+            {
+                "id": "3",
+                "fruit": "mango",
+                "color": "green",
+                "size": "large",
+            },
+            {
+                "id": "4",
+                "fruit": "grape",
+                "color": "green",
+                "size": "large",
+            },
+        ];
 
-      for (let i = 0; i < fruitdata.length; i++) {
-        const fid = fruitdata[i].id;
-        const fruit = fruitdata[i].fruit;
-        const clr = fruitdata[i].color;
-        const size = fruitdata[i].size;
-        document.write(`id:${fid},fruit:${fruit},clr:${clr},size:${size}`);
-        document.write("<br/><br/>");
-      }
-
-      document.write("<br/><br/>");
-
-      function Displayfruitdata() {
-        const id = document.getElementById("txtid").value;
-        const resultElemnt = document.getElementById("result");
-        resultElemnt.innerHTML = "";
-      }
-
-      function addData() {
-        const id = document.getElementById("fruitid").value;
-        const fruit = document.getElementById("fruit").value;
-        const color = document.getElementById("color").value;
-        const size = document.getElementById("size").value;
-
-        fruitdata.push({ id: id, fruit: fruit, color: color, size: size });
-        Displayfruitdata();
-      }
-
-      function findData() {
-        console.log("hbu");
-        const id = document.getElementById("txtId").value;
-        const resultElemnt = document.getElementById("result");
-        resultElemnt.innerHTML = "";
-
-        const foundfruit = fruitdata.find((fruit) => fruit.id == id);
-
-        if (foundfruit) {
-          resultElemnt.innerHTML =
-            "<b>" +
-            `id:${foundfruit.id},fruit:${foundfruit.fruit},clr:${foundfruit.color},size:${foundfruit.size}` +
-            "</b>";
-        } else {
-          resultElemnt.innerHTML = "fruit not found";
+        function Displayfruitdata() {
+            const resultElemnt = document.getElementById("result");
+            resultElemnt.innerHTML = '';
+            fruitdata.forEach(fruit => {
+                resultElemnt.innerHTML += `id: ${fruit.id}, fruit: ${fruit.fruit}, color: ${fruit.color}, size: ${fruit.size}<br>`;
+            });
         }
-      }
 
-      function insertData() {
-        const id = document.getElementById("id").value;
-        const fruit = document.getElementById("fruit").value;
-        const color = document.getElementById("color").value;
-        const size = document.getElementById("size").value;
+        Displayfruitdata(); // Display initial data
 
-        fruitdata.push({ id: id, fruitid: fruit, color: color, size: size });
-        Displayfruitdata();
-      }
+        function addData() {
+            const id = document.getElementById("txtfruitid").value;
+            const fruit = document.getElementById("txtfruit").value;
+            const color = document.getElementById("txtcolor").value;
+            const size = document.getElementById("txtsize").value;
+
+            fruitdata.push({ "id": id, "fruit": fruit, "color": color, "size": size });
+            Displayfruitdata();
+        }
+
+        function findData() {
+            const id = document.getElementById("txtId").value;
+            const resultElemnt = document.getElementById("result");
+            resultElemnt.innerHTML = '';
+
+            const foundFruit = fruitdata.find(fruit => fruit.id === id);
+
+            if (foundFruit) {
+                resultElemnt.innerHTML = `<b>id: ${foundFruit.id}, fruit: ${foundFruit.fruit}, color: ${foundFruit.color}, size: ${foundFruit.size}</b>`;
+            } else {
+                resultElemnt.innerHTML = "Fruit not found";
+            }
+        }
     </script>
-  </body>
+</body>
+
 </html>

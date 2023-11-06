@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+<!--
+#Layer1 {
+	position:absolute;
+	left:296px;
+	top:200px;
+	width:830px;
+	height:230px;
+	z-index:1;
+}
+-->
+</style>
+<body>
+
+<div id="Layer1">
+  <table width="559" border="0">
+    <tr>
+      <td width="201">&nbsp;</td>
+      <td width="348">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Enter Paragraph </td>
+      <td><label>
+        <textarea name="txtNo" id="txtNo" rows="6" cols="50"></textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Word to Replace </td>
+      <td><label>
+        <input type="text" id="txt_data" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Replacement Word </td>
+      <td><label>
+        <input type="text" id="replacement_data" />
+      </label></td>
+    </tr>
+ 
+    <tr>
+      <td>&nbsp;</td>
+      <td><label>
+        <input type="submit" name="Submit" value="Submit" onClick="findAndReplace()">
+      </label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><p id="demo"> </p> </td>
+    </tr>
+  </table>
+</div>
+<h2>Search : Paragraph iterator </h2>
+
+<p> </p>
+
+<script>
+function findAndReplace() {
+    var text = document.getElementById("txtNo").value;
+    var wordToReplace = document.getElementById("txt_data").value;
+    var replacementWord = document.getElementById("replacement_data").value;
+    
+
+ 
+        var replacedText = text.replace(new RegExp('\\b' + wordToReplace + '\\b', 'ig'), replacementWord);
+        document.getElementById("demo").innerHTML = replacedText;
+    
+}
+</script>
+
+</body>
+</html>

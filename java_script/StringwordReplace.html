@@ -1,0 +1,34 @@
+
+<html>
+<head>
+  <title>Replace Text</title>
+  <script>
+    function replaceText() {
+      var sentence = document.getElementById("enterData").value;
+      var searchWord = document.getElementById("searchData").value;
+      var replaceWord = document.getElementById("replaceData").value;
+      
+      var replacedSentence = sentence.replace(searchWord, replaceWord);
+      
+      document.getElementById("result").innerHTML = replacedSentence;
+    }
+  </script>
+</head>
+<body>
+  <h1>Replace Text</h1>
+  
+  <label for="enterData">Enter Sentence:</label>
+  <textarea id="enterData" rows="4" cols="50"></textarea><br><br>
+  
+  <label for="searchData">Search Word:</label>
+  <input type="text" id="searchData"><br><br>
+  
+  <label for="replaceData">Replace Word:</label>
+  <input type="text" id="replaceData"><br><br>
+  
+  <button onclick="replaceText()" style="background-color: aqua;">Replace</button>
+  
+  <h2>Result:</h2>
+  <p id="result"></p>
+</body>
+</html>
