@@ -1,0 +1,85 @@
+<html>
+  <script>
+    const fruitData = [
+      {
+        "id": "1",
+        "fruit": "Apple",
+        "size": "Large",
+        "color": "Red"
+      },
+      {
+        "id": "2",
+        "fruit": "Mango",
+        "size": "Large",
+        "color": "Yellow"
+      },
+      {
+        "id": "3",
+        "fruit": "Coconut",
+        "size": "Large",
+        "color": "Green"
+      },
+      {
+        "id": "4",
+        "fruit": "Jack",
+        "size": "Large",
+        "color": "Yellow"
+      }
+    ];
+
+    for (let i = 0; i < fruitData.length; i++) {
+      const fid = fruitData[i].id;
+      const fruit = fruitData[i].fruit;
+      const size = fruitData[i].size;
+      const color = fruitData[i].color;
+
+      document.write(`Id: ${fid}, Fruit Name: ${fruit}, Size: ${size}, Color: ${color}`);
+      document.write("<br/><br/>");
+    }
+
+    document.write("<br/><br/>");
+    document.write("<br/><br/>");
+
+    function findData() {
+      const searchTerm = document.getElementById("txtSearch").value;
+      const searchType = document.getElementById("selectSearchType").value;
+      const resultElement = document.getElementById("result");
+
+      const foundFruit = fruitData.find((fruit) => fruit[searchType] === searchTerm);
+
+      if (foundFruit) {
+        resultElement.innerHTML =
+          "<b>" + `Fruit: ${foundFruit.fruit}, Size: ${foundFruit.size}, Color: ${foundFruit.color}` + "</b>";
+      } else {
+        resultElement.innerHTML = "No fruit found with the given " + searchType + ".";
+      }
+    }
+  </script>
+  <body>
+    <table>
+      <tr>
+        <td>Enter search term</td>
+        <td><input type="text" id="txtSearch" /></td>
+      </tr>
+      <tr>
+        <td>Choose search type</td>
+        <td>
+          <select id="selectSearchType">
+            <option value="id">ID</option>
+            <option value="fruit">Fruit Name</option>
+            <option value="size">Size</option>
+            <option value="color">Color</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="button" value="Find" onClick="findData()" /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td> <div id="result"></div> </td>
+      </tr>
+    </table>
+  </body>
+</html>
