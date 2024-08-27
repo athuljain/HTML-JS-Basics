@@ -12,10 +12,9 @@
             <input id="firstNum" type="number" placeholder="Enter First Number" >
             <input id="secondNum" type="number" placeholder="Enter Second Number" > <br> <br>
             <button type="button"  onclick="Add()" >Sum</button>
+            <button type="button" onclick="Sub()">sub</button>
          
             <h1 id="result"></h1>
-         
-         
          
          
             <!-- <button type="button" onclick="sub()" >Sub</button>
@@ -34,14 +33,14 @@
             const sumResult = firstNum + secondNum;
             document.getElementById('result').innerHTML =`sum = ${sumResult}`;
         }    
-        // function sub(){
-        //     const firstNum = parseInt(document.getElementById('firstNum').value)
-        //     const secondNum= parseInt(document.getElementById('secondNum').value)
+        function Sub(){
+            const firstNum = parseInt(document.getElementById('firstNum').value)
+            const secondNum= parseInt(document.getElementById('secondNum').value)
 
-        //     const subResult = firstNum - secondNum;
-        //     document.getElementById('result').innerHTML= `Sub : ${subResult}`;
+            const subResult = firstNum - secondNum;
+            document.getElementById('result').innerHTML= `Sub : ${subResult}`;
 
-        // }  
+        }  
         function div(){
             const firstNum = parseInt(document.getElementById('firstNum').value)
             const secondNum= parseInt(document.getElementById('secondNum').value)

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #form-container {
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 300px;
+            text-align: left;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #result {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="form-container">
+    <h2>Fruit Data</h2>
+    <label for="txtId">Enter data ID to find:</label>
+    <input type="text" id="txtId"><br>
+    <button onclick="findData()">Find</button><br>
+    
+    <label for="txtfruitid">Enter Fruit ID:</label>
+    <input type="text" id="txtfruitid"><br>
+    
+    <label for="txtfruit">Enter Fruit:</label>
+    <input type="text" id="txtfruit"><br>
+    
+    <label for="txtcolor">Enter Color:</label>
+    <input type="text" id="txtcolor"><br>
+    
+    <label for="txtsize">Enter Size:</label>
+    <input type="text" id="txtsize"><br>
+    
+    <button onclick="addData()">Insert</button><br>
+    
+    <div id="result"></div>
+</div>
+
+<script>
+    const fruitdata = [
+        { "id": "1", "fruit": "apple", "color": "red", "size": "small" },
+        { "id": "2", "fruit": "guava", "color": "green", "size": "small" },
+        { "id": "3", "fruit": "mango", "color": "green", "size": "large" },
+        { "id": "4", "fruit": "grape", "color": "green", "size": "large" }
+    ];
+
+    function Displayfruitdata() {
+        const resultElement = document.getElementById("result");
+        resultElement.innerHTML = '';
+        fruitdata.forEach(fruit => {
+            resultElement.innerHTML += `id: ${fruit.id}, fruit: ${fruit.fruit}, color: ${fruit.color}, size: ${fruit.size}<br>`;
+        });
+    }
+
+    Displayfruitdata(); // Display initial data
+
+    function addData() {
+        const id = document.getElementById("txtfruitid").value;
+        const fruit = document.getElementById("txtfruit").value;
+        const color = document.getElementById("txtcolor").value;
+        const size = document.getElementById("txtsize").value;
+
+        fruitdata.push({ "id": id, "fruit": fruit, "color": color, "size": size });
+        Displayfruitdata();
+    }
+
+    function findData() {
+        const id = document.getElementById("txtId").value;
+        const resultElement = document.getElementById("result");
+        resultElement.innerHTML = '';
+
+        const foundFruit = fruitdata.find(fruit => fruit.id === id);
+
+        if (foundFruit) {
+            resultElement.innerHTML = `<b>id: ${foundFruit.id}, fruit: ${foundFruit.fruit}, color: ${foundFruit.color}, size: ${foundFruit.size}</b>`;
+        } else {
+            resultElement.innerHTML = "Fruit not found";
+        }
+    }
+</script>
+
+</body>
+
+</html>

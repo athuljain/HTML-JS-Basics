@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+    <style>
+        #form-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            text-align: center;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="form-container">
+    <h2>Calculate Factorial</h2>
+    <label for="txt_data">Enter a number:</label><br>
+    <input type="text" id="txt_data"><br><br>
+    <button type="button" onclick="findFact()">Submit</button>
+    <p id="result"></p>
+</div>
+
+<script>
+function findFact() {
+    const n = document.getElementById("txt_data").value;
+    const k = parseInt(n);
+    if (isNaN(k) || k < 0) {
+        document.getElementById("result").innerHTML = "Please enter a valid positive integer.";
+        return;
+    }
+    let factorial = 1;
+
+    for (let i = 1; i <= k; i++) {
+        factorial *= i;
+    }
+
+    document.getElementById("result").innerHTML = `Factorial of ${k} is ${factorial}`;
+}
+</script>
+
+</body>
+</html>
